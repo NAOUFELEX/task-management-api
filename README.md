@@ -36,14 +36,21 @@ This project demonstrates clean architecture principles, separation of concerns,
 ---
 
 ## 🗂 Project Structure
-app/
+```
+task-management-api/
 │
-├── main.py # API routes
-├── models.py # SQLAlchemy models
-├── schemas.py # Pydantic schemas & validation
-├── crud.py # Database operations
-├── database.py # Database configuration
-
+├── app/
+│   ├── main.py        # API routes & dependency injection
+│   ├── models.py      # SQLAlchemy ORM models
+│   ├── schemas.py     # Pydantic schemas & validation logic
+│   ├── crud.py        # Database CRUD operations
+│   ├── database.py    # Database engine & session configuration
+│
+├── .env               # Environment variables
+├── requirements.txt   # Project dependencies
+├── README.md          # Project documentation
+└── LICENSE
+```
 
 
 
@@ -54,7 +61,7 @@ app/
 ### 1️ Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/NAOUFELEX/task-management-api.git>
 cd task-management-api
 
 ### 2️ Create virtual environment
