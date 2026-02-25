@@ -1,5 +1,4 @@
 from sqlalchemy.orm import Session
-from sqlalchemy import select
 from typing import Optional, List
 
 from . import models, schemas
@@ -19,7 +18,7 @@ def create_task(db: Session, task_data: schemas.TaskCreate) -> models.Task:
     return task
 
 
-# Get all tasks (with optional pagination & filtering)
+# Get all tasks (with pagination and optional status filtering)
 def get_tasks(
     db: Session,
     skip: int = 0,
@@ -29,7 +28,7 @@ def get_tasks(
 
     query = db.query(models.Task)
 
-    if status:
+    if status is not None:
         query = query.filter(models.Task.status == status)
 
     return query.offset(skip).limit(limit).all()
@@ -49,10 +48,10 @@ def update_task(
 
     task = get_task(db, task_id)
 
-    if not task:
+    if task is None:
         return None
 
-    update_data = task_update.dict(exclude_unset=True)
+    update_data = task_update.model_dump(exclude_unset=True)
 
     for field, value in update_data.items():
         setattr(task, field, value)
@@ -68,7 +67,7 @@ def delete_task(db: Session, task_id: int) -> Optional[models.Task]:
 
     task = get_task(db, task_id)
 
-    if not task:
+    if task is None:
         return None
 
     db.delete(task)
