@@ -7,7 +7,7 @@ This project demonstrates clean architecture principles, separation of concerns,
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **FastAPI** – Modern high-performance web framework (ASGI)
 - **SQLAlchemy ORM** – Database abstraction layer
@@ -17,7 +17,7 @@ This project demonstrates clean architecture principles, separation of concerns,
 
 ---
 
-## 📌 Features
+## Features
 
 - Full CRUD operations
 - Enum-based task status:
@@ -35,7 +35,7 @@ This project demonstrates clean architecture principles, separation of concerns,
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 ```
 task-management-api/
 │
@@ -56,7 +56,7 @@ task-management-api/
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1️ Clone the repository
 
